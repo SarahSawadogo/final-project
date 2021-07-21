@@ -17,7 +17,7 @@ def index():
 #datetime.now() is used to trick browser to update faster
 
 # add route for your gif results
-@app.route('/yourgif', methods = ["GET", "POST"])
+@app.route('/countries_page', methods = ["GET", "POST"])
 
 def yourgif():
     #get the gif from giphy and put it on webpage
@@ -25,4 +25,20 @@ def yourgif():
     gifLink = getImageUrlFrom(user_response)
     print(gifLink)
     
-    return render_template("yourgif.html", time = datetime.now(), gifLink = gifLink)
+    return render_template("countries_page.html", time = datetime.now(), gifLink = gifLink)
+
+@app.route('/maps')
+def maps():
+    return render_template("maps.html", time = datetime.now())
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template("aboutUs.html", time = datetime.now())
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template("aboutUs.html", time = datetime.now())
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template("aboutUs.html", time = datetime.now())
