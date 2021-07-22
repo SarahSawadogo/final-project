@@ -9,3 +9,18 @@ header {
 	font-style: italic;
   text-align: center
 }
+
+/* img {
+  margin: 5px;
+  display: inline-flex;
+  height: 350px;
+  width: 350px;
+  text-align : middle;
+} */
+
+img{
+   width: 250px;
+   height: 250px;
+   object-fit: cover;
+   margin-bottom: 50px;
+}
