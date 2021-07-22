@@ -7,6 +7,7 @@ import os
 
 # -- Initialization section --
 app = Flask(__name__)
+app.config["GIPHY_KEY"] = os.getenv("GIPHY_KEY")
 
 
 # -- Routes section --
@@ -35,10 +36,10 @@ def maps():
 def aboutUs():
     return render_template("aboutUs.html", time = datetime.now())
 
-@app.route('/aboutUs')
-def aboutUs():
-    return render_template("aboutUs.html", time = datetime.now())
+@app.route('/references')
+def references():
+    return render_template("references.html", time = datetime.now())
 
-@app.route('/aboutUs')
-def aboutUs():
-    return render_template("aboutUs.html", time = datetime.now())
+@app.route('/signIn')
+def signIn():
+    return render_template("signIn.html", time = datetime.now())
