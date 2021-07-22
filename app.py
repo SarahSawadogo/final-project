@@ -13,7 +13,7 @@ app.config["GIPHY_KEY"] = os.getenv("GIPHY_KEY")
 # -- Routes section --
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index.html')
 def index():
     return render_template("index.html", time = datetime.now())
 #datetime.now() is used to trick browser to update faster

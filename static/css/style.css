@@ -3,11 +3,21 @@ body {
     margin-top: 30px;
     font-family: 'IBM Plex Sans', sans-serif;
 }
+ header{
 
-header {
+   height: 500px;
+   width: 100%;
+   background-image: url("https://www.thetravelblogs.com/wp-content/uploads/2017/02/banner-1082644_1280-1.jpg");
+   background-size: cover;
+   text-align: center
+   }
+header p{
   letter-spacing: 3px;
-	font-style: italic;
-  text-align: center
+  text-align: center;
+}
+
+.headertext {
+    color : white
 }
 
 /* img {
@@ -24,3 +34,4 @@ img{
    object-fit: cover;
    margin-bottom: 50px;
 }
+
