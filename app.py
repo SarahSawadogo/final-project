@@ -2,8 +2,8 @@
 # -- Import section --
 from flask import Flask, render_template, request
 from datetime import datetime
-from model import getImageUrlFrom
 import os
+from model import worldList
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -22,12 +22,14 @@ def index():
 @app.route('/countries_page.html', methods = ["GET", "POST"])
 
 def countries_page():
-    #get the gif from giphy and put it on webpage
-    user_response = "dog"
-    gifLink = getImageUrlFrom(user_response)
-    print(gifLink)
+    selectedCountry = request.form['country']
+    data = worldList(selectedCountry)
     
-    return render_template("countries_page.html", time = datetime.now(), gifLink = gifLink)
+    
+    return render_template("countries_page.html", time = datetime.now(), data = data)
+
+# def countries_page_img():
+    
 
 
 @app.route('/maps.html')

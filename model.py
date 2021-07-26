@@ -1,11 +1,18 @@
 import requests
-# import random
-# response = requests.get(giphy_request_link.json())
+# # import random
+# # response = requests.get(giphy_request_link.json())
 
-def getImageUrlFrom(query):
-    giphy_request_link = "https://api.giphy.com/v1/gifs/search?api_key=CTUfMZQ5zxf8SMRLRW02UkpfVhn7FJL4&q=dog&limit=25&offset=0&rating=g&lang=en"
-    response = requests.get(giphy_request_link).json()
-    return response ["data"][0]["images"]["fixed_height"]["url"]
+def worldList(country):
+    response = requests.get('https://raw.githubusercontent.com/iancoleman/cia_world_factbook_api/master/data/factbook.json').json()
+    print(response[3]['name'])
+#iterate through the list until the value for name in the dictionary matches the user search
+    for entry in response:
+        if entry['name'] == country:
+            return entry
 
-# for entry in range(3):
-#     print(response[random.randint(0, 100)]["images"]["fixed_height"]["url"])
+print(worldList('Japan'))
+    
+    
+
+# # for entry in range(3):
+# #     print(response[random.randint(0, 100)]["images"]["fixed_height"]["url"])

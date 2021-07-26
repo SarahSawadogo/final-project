@@ -2,24 +2,24 @@ body {
     margin: 10%;
     margin-top: 30px;
     font-family: 'IBM Plex Sans', sans-serif;
+    cursor: url("/static/images/earthword.png"), auto;
 }
- header{
-
-   height: 500px;
+header{
+   height: 100%;
    width: 100%;
-   background-image: url("https://www.thetravelblogs.com/wp-content/uploads/2017/02/banner-1082644_1280-1.jpg");
-   background-size: cover;
+   background-image: url("https://images.theconversation.com/files/286380/original/file-20190731-186797-1gtaziy.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip");
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-size: 100%;
    text-align: center
    }
 header p{
   letter-spacing: 3px;
   text-align: center;
 }
-
 .headertext {
     color : white
 }
-
 /* img {
   margin: 5px;
   display: inline-flex;
@@ -27,11 +27,19 @@ header p{
   width: 350px;
   text-align : middle;
 } */
-
-img{
+/* img{
    width: 250px;
    height: 250px;
    object-fit: cover;
    margin-bottom: 50px;
+} */
+.row {
+    padding: 13px;
+}
+img{
+    height: 300px;
 }
 
+.countryFlag{
+    padding-right: 50%;
+}
