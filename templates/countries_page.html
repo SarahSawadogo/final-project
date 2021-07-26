@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>Countries - Globopedia</title>
     <link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
@@ -17,24 +18,37 @@
                     <a class="nav-link active" aria-current="page" href="/index.html">HOME</a>
                     <a class="nav-link" href="/aboutUs.html">ABOUT</a>
                     <a class="nav-link" href="/maps.html">MAPS</a>
-                     <a class="nav-link" href="/countries_page.html">COUNTRIES</a>
-                      <a class="nav-link" href="/references.html">REFERENCES</a>
+                    <a class="nav-link" href="/countries_page.html">COUNTRIES</a>
+                    <a class="nav-link" href="/references.html">REFERENCES</a>
                     <a class="nav-link" href="/signIn.html" tabindex="-1" aria-disabled="true">Sign In</a>
                 </div>
             </div>
         </div>
     </nav>
 </head>
+
 <body>
-<br>
-<h1>{{raw["data"]["name"]}}</h1>
-<p>{{raw["data"]["introduction"]["background"]}}</p>
-<p>{{raw["data"]["geography"]["location"]}}</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+    <br>
+    <div class="countryInfo"> 
+        <h1>{{raw["data"]["name"]}}</h1>
+        <br>
+        <h4>Background:</h4>
+        <p>{{raw["data"]["introduction"]["background"]}}</p>
+        <h4>Location:</h4>
+        <p>{{raw["data"]["geography"]["location"]}}</p>
+        <!-- not working -->
+        <h4>Languages:</h4>
+        <p>{{raw["data"]['languages']}}</p>
+        <!-- not working  -->
+        <h4>Religions:</h4>
+        <p>{{raw["data"]["religion"]}}</p>
+        <h4>Population:</h4>
+        <p>{{raw["data"]["people"]["population"]["total"]}}</p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
 </body>
+</body>
+
 </html>
