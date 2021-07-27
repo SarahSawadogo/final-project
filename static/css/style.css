@@ -2,39 +2,28 @@ h1{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: large;
 }
-
 h2{
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    
-
 }
-
 h3{
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    
-
 }
-
 p{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: large;
 }
-
 body {
     margin: 10%;
     margin-top: 30px;
     font-family: 'IBM Plex Sans', sans-serif;
     cursor: url("/static/images/earthword.png"), auto;
-
 }
-
 i{
     color: white;
 }
 nav{
     background-color:#020d38;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-
 }
 .nav-link{
     font-size: large;
@@ -42,18 +31,14 @@ nav{
 .navbar-brand{
     font-size: xx-large;
 }
-
 .navbar-nav{
     float: right;
 }
-
 footer{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     color : white;
    background-color:#020d38; 
 }
-
-
 header{
    height: 100%;
    width: 100%;
@@ -71,7 +56,6 @@ header p{
     color : white; 
     letter-spacing: 5px;    
     }
-
 /* img {
   margin: 5px;
   display: inline-flex;
@@ -91,26 +75,21 @@ header p{
 img{
     height: 300px;
 }
-
 .countryFlag{
     padding-right: 50%;
 }
-
 /* quick reset */
 /* * {
   margin: 0;
   padding: 0;
   border: 0;
 } */
-
-
 /* relevant styles */
 .img__wrap {
   position: relative;
   height: 200px;
   width: 257px;
 }
-
 .img__description {
   position: absolute;
   top: 0;
@@ -121,12 +100,28 @@ img{
   color: #fff;
   visibility: hidden;
   opacity: 0;
-
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;
 }
-
 .img__wrap:hover .img__description {
   visibility: visible;
   opacity: 1;
+}
+iframe {
+   height: 100%;
+   width: 100%;
+}
+
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    background-color : lightsteelblue;
+    text-shadow: 1px 1px black;
+    color:white;
+    position: absolute;
+    top: 78%;
+    left: 0;
+    width: 25%;
 }
