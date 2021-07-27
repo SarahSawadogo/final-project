@@ -5,6 +5,9 @@ def worldList(country):
     response = requests.get('https://raw.githubusercontent.com/iancoleman/cia_world_factbook_api/master/data/factbook.json').json()
     return response["countries"][country]
 
+def city(country_img):
+    response = requests.get('https://raw.githubusercontent.com/iancoleman/cia_world_factbook_api/master/data/factbook.json').json()
+    return response[country_img]
 
 # def worldImageList(country):
 #     response = requests.get('https://restcountries.eu/rest/v2/all').json()

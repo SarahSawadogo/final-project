@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 import os
-from model import worldList
+from model import worldList, city
 #  worldImageList
 # -- Initialization section --
 app = Flask(__name__)
@@ -55,8 +55,10 @@ def cambodia():
     return render_template("cambodia.html", time = datetime.now())
 
 @app.route('/canada.html')
-def canada():
-    return render_template("canada.html", time = datetime.now())
+def canada_page():
+    country_name_one = "canada"
+    can = city(country_name_one)
+    return render_template("canada.html", time = datetime.now(), can = can)
 
 @app.route('/chile.html')
 def chile():
