@@ -1,9 +1,59 @@
+h1{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: large;
+}
+
+h2{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    
+
+}
+
+h3{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    
+
+}
+
+p{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: large;
+}
+
 body {
     margin: 10%;
     margin-top: 30px;
     font-family: 'IBM Plex Sans', sans-serif;
     cursor: url("/static/images/earthword.png"), auto;
+
 }
+
+i{
+    color: white;
+}
+nav{
+    background-color:#020d38;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+
+}
+.nav-link{
+    font-size: large;
+}
+.navbar-brand{
+    font-size: xx-large;
+}
+
+.navbar-nav{
+    float: right;
+}
+
+footer{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color : white;
+   background-color:#020d38; 
+}
+
+
 header{
    height: 100%;
    width: 100%;
@@ -20,6 +70,7 @@ header p{
 .headertext {
     color : white
 }
+
 /* img {
   margin: 5px;
   display: inline-flex;

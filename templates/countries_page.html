@@ -5,10 +5,14 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/571071a2e5.js" crossorigin="anonymous"></script>
     <!-- navbar     -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">GLOBOPEDIA</a>
+            <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> GLOBOPEDIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -16,9 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/index.html">HOME</a>
-                    <a class="nav-link" href="/aboutUs.html">ABOUT</a>
                     <a class="nav-link" href="/maps.html">MAPS</a>
-                    <a class="nav-link" href="/countries_page.html">COUNTRIES</a>
                     <a class="nav-link" href="/references.html">REFERENCES</a>
                     <a class="nav-link" href="/signIn.html" tabindex="-1" aria-disabled="true">Sign In</a>
                 </div>
@@ -29,27 +31,124 @@
 
 <body>
     <br>
-    <div class="countryInfo"> 
-        <h1>{{raw["data"]["name"]}}</h1>
-        <br>
-        <!-- <img src = {{info.flag}} > -->
-        <h4>Background:</h4>
-        <p>{{raw["data"]["introduction"]["background"]}}</p>
-        <h4>Location:</h4>
-        <p>{{raw["data"]["geography"]["location"]}}</p>
-        <!-- not working -->
-        <h4>Languages:</h4>
-        <p>{{raw["data"]['languages']}}</p>
-        <!-- not working  -->
-        <h4>Religions:</h4>
-        <p>{{raw["data"]["religion"]}}</p>
-        <h4>Population:</h4>
-        <p>{{raw["data"]["people"]["population"]["total"]}}</p>
-        <p></p>
-        <p></p>
-        <p></p>
+    <div style="width: 100%;" class='container'>
+        <div style="width: 40%; height: 100px; float: left;">
+            <h1>{{raw["data"]["name"]}}</h1>
+            <p>{{raw["data"]["introduction"]["background"]}}</p>
+            <h2><u>Geography</u></h2>
+            <p>Location: {{raw["data"]["geography"]["location"]}}</p>
+            <p>Geographic Coordinates: {{raw["data"]["geography"]["geographic_coordinates"]["latitude"]["degrees"]}}
+                {{raw["data"]["geography"]["geographic_coordinates"]["latitude"]["hemisphere"]}},
+                {{raw["data"]["geography"]["geographic_coordinates"]["longitude"]["degrees"]}}
+                {{raw["data"]["geography"]["geographic_coordinates"]["longitude"]["hemisphere"]}}</p>
+            <p>Total Area: {{raw["data"]["geography"]["area"]["total"]["value"]}} sq km</p>
+            <p>Land Area: {{raw["data"]["geography"]["area"]["land"]["value"]}} sq km</p>
+            <p>Water Area: {{raw["data"]["geography"]["area"]["water"]["value"]}} sq km</p>
+            <p>Area Comparison: {{raw["data"]["geography"]["area"]["comparative"]}}</p>
+            <p>Coastline: {{raw["data"]["geography"]["coastline"]["value"]}} km</p>
+            <p>Climate: {{raw["data"]["geography"]["climate"]}}</p>
+            <p>Terrain: {{raw["data"]["geography"]["terrain"]}}</p>
+            <h5>Land Use</h5>
+            <p>Population Distribution: {{raw["data"]["geography"]["population_distribution"]}}</p>
+            <p>Agricultural Land:
+                {{raw["data"]["geography"]["land_use"]["by_sector"]["agricultural_land_total"]["value"]}}%
+            </p>
+            <p>Forest: {{raw["data"]["geography"]["land_use"]["by_sector"]["forest"]["value"]}}%</p>
+            <p>Other: {{raw["data"]["geography"]["land_use"]["by_sector"]["other"]["value"]}}%</p>
+            <h2><u>People</u></h2>
+            <p>Population: {{raw["data"]["people"]["population"]["total"]}}</p>
+            <h5>Nationality</h5>
+            <p>Noun: {{raw["data"]["people"]["nationality"]["noun"]}}</p>
+            <p>Adjective: {{raw["data"]["people"]["nationality"]["adjective"]}}</p>
+            <h5>Ethnic Groups</h5>
+            <p>{{raw["data"]["people"]["ethnic_groups"]["ethnicity"][0]["name"]}},
+                {{raw["data"]["people"]["ethnic_groups"]["ethnicity"][1]["name"]}},
+                {{raw["data"]["people"]["ethnic_groups"]["ethnicity"][2]["name"]}},
+                {{raw["data"]["people"]["ethnic_groups"]["ethnicity"][3]["name"]}}</p>
+            <h5>Languages</h5>
+            <p>{{raw["data"]["people"]["languages"]["language"][0]["name"]}}
+                ({{raw["data"]["people"]["languages"]["language"][0]["percent"]}}%)</p>
+            <h5>Religion</h5>
+            <p>{{raw["data"]["people"]["religions"]["religion"][0]["name"]}}
+                ({{raw["data"]["people"]["religions"]["religion"][0]["percent"]}}%),
+                {{raw["data"]["people"]["religions"]["religion"][1]["name"]}}
+                ({{raw["data"]["people"]["religions"]["religion"][1]["percent"]}}%)</p>
+            <h2><u>Government</u></h2>
+            <p>Government Type: {{raw["data"]["government"]["government_type"]}}</p>
+            <p>Capital: {{raw["data"]["government"]["capital"]["name"]}}</p>
+            <p>Independence: {{raw["data"]["government"]["independence"]["date"]}}
+                ({{raw["data"]["government"]["independence"]["note"]}})</p>
+            <p>Legal System: {{raw["data"]["government"]["legal_system"]}}</p>
+            <h5>Citizenship</h5>
+            <p>Citizenship by Birth: {{raw["data"]["government"]["citizenship"]["citizenship_by_birth"]}}</p>
+            <p>Citizenship by Descent Only: {{raw["data"]["government"]["citizenship"]["citizenship_by_descent_only"]}}
+            </p>
+            <p>Dual Citizenship Recognized: {{raw["data"]["government"]["citizenship"]["dual_citizenship_recognized"]}}
+            </p>
+            <p>Residency Requirement for Naturalization:
+                {{raw["data"]["government"]["citizenship"]["residency_requirement_for_naturalization"]}}</p>
+            <h5>Executive Branch</h5>
+            <p>Chief of State: {{raw["data"]["government"]["executive_branch"]["chief_of_state"]}}</p>
+            <p>Head of Government: {{raw["data"]["government"]["executive_branch"]["head_of_government"]}}</p>
+            <p>Cabinet: {{raw["data"]["government"]["executive_branch"]["cabinet"]}}</p>
+            <p>Elections/Appointments: {{raw["data"]["government"]["executive_branch"]["elections_appointments"]}}</p>
+            <br>
+            <br>
+        </div>
+        <div style="margin-left: 60%; height: 100px;">
+            <br>
+            <h5>Legislative Branch</h5>
+            <p>Description: {{raw["data"]["government"]["legislative_branch"]["description"]}}</p>
+            <p>Elections: {{raw["data"]["government"]["legislative_branch"]["elections"]}}</p>
+            <h5>Judicial Branch</h5>
+            <p>Highest Courts: {{raw["data"]["government"]["judicial_branch"]["highest_courts"]}}</p>
+            <p>Judge Selection and Term of Office:
+                {{raw["data"]["government"]["judicial_branch"]["judge_selection_and_term_of_office"]}}</p>
+            <p>Subordinate Courts: {{raw["data"]["government"]["judicial_branch"]["subordinate_courts"]}}</p>
+            <h2><u>Economy</u></h2>
+            <p>{{raw["data"]["economy"]["overview"]}}</p>
+            <p>Population Below Poverty Line: {{raw["data"]["economy"]["population_below_poverty_line"]["value"]}}%</p>
+            <h5>Household Income by Percentage Share</h5>
+            <p>Lowest 10%:
+                {{raw["data"]["economy"]["household_income_by_percentage_share"]["lowest_ten_percent"]["value"]}}%</p>
+            <p>Highest 10%:
+                {{raw["data"]["economy"]["household_income_by_percentage_share"]["highest_ten_percent"]["value"]}}%</p>
+            <h5>Agricultural Products</h5>
+            <p>{{raw["data"]["economy"]["agriculture_products"]["products"][0]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][1]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][2]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][3]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][4]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][5]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][6]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][7]}},
+                {{raw["data"]["economy"]["agriculture_products"]["products"][8]}}</p>
+            <h5>Industries</h5>
+            <p>{{raw["data"]["economy"]["industries"]["industries"][0]}},
+                {{raw["data"]["economy"]["industries"]["industries"][1]}},
+                {{raw["data"]["economy"]["industries"]["industries"][2]}},
+                {{raw["data"]["economy"]["industries"]["industries"][3]}},
+                {{raw["data"]["economy"]["industries"]["industries"][4]}},
+                {{raw["data"]["economy"]["industries"]["industries"][5]}},
+                {{raw["data"]["economy"]["industries"]["industries"][6]}},
+                {{raw["data"]["economy"]["industries"]["industries"][7]}},
+                {{raw["data"]["economy"]["industries"]["industries"][8]}}</p>
+            <h2><u>Military and Security</u></h2>
+            <p>Years of Age: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["years_of_age"]}}</p>
+            <p>Note: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["note"]}}</p>
+            <br>
+            <br>
+        </div>
     </div>
+
+
+
+    
+                
+                   
+            
+    
 </body>
-</body>
+
 
 </html>
