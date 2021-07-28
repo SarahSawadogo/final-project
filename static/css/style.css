@@ -117,7 +117,7 @@ iframe {
 }
 
 .caption {
-    background-color : lightsteelblue;
+    background-color : rgb(55, 86, 128);
     text-shadow: 1px 1px black;
     color:white;
     position: absolute;
