@@ -25,7 +25,7 @@ def countries_page():
     
     return render_template("countries_page.html", time = datetime.now(), raw = raw)
     
-# def countries_image():
+# def countries_image(a):
 #     selectedCountries = request.form['country']
 #     info = worldImageList(selectedCountries)
 
