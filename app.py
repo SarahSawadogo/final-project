@@ -17,11 +17,14 @@ def index():
 # add route for your gif results
 @app.route('/countries_page.html', methods = ["GET", "POST"])
 def countries_page():
-    selectedCountry = request.form['country'].lower()
-    raw = worldList(selectedCountry)
-
+    try:
+        selectedCountry = request.form['country'].lower()
+        raw = worldList(selectedCountry)
+    except:
+        return "404 error. Please enter the name of a country."
+    
     return render_template("countries_page.html", time = datetime.now(), raw = raw)
-
+    
 # def countries_image():
 #     selectedCountries = request.form['country']
 #     info = worldImageList(selectedCountries)
@@ -55,10 +58,8 @@ def cambodia():
     return render_template("cambodia.html", time = datetime.now())
 
 @app.route('/canada.html')
-def canada_page():
-    country_name_one = "canada"
-    can = city(country_name_one)
-    return render_template("canada.html", time = datetime.now(), can = can)
+def canada():
+    return render_template("canada.html", time = datetime.now())
 
 @app.route('/chile.html')
 def chile():
@@ -68,6 +69,10 @@ def chile():
 def fiji():
     return render_template("fiji.html", time = datetime.now())
 
+@app.route('/ghana.html')
+def ghana():
+    return render_template("ghana.html", time = datetime.now())
+
 @app.route('/mexico.html')
 def mexico():
     return render_template("mexico.html", time = datetime.now())
@@ -76,33 +81,25 @@ def mexico():
 def morocco():
     return render_template("morocco.html", time = datetime.now())
 
-@app.route('/netherland.html')
-def netherland():
-    return render_template("netherland.html", time = datetime.now())
-
-@app.route('/newZealand.html')
-def newZealand():
-    return render_template("newZealand.html", time = datetime.now())
+@app.route('/netherlands.html')
+def netherlands():
+    return render_template("netherlands.html", time = datetime.now())
 
 @app.route('/nicaragua.html')
 def nicaragua():
     return render_template("nicaragua.html", time = datetime.now())
 
+@app.route('/nigeria.html')
+def nigeria():
+    return render_template("nigeria.html", time = datetime.now())
+
 @app.route('/phillipines.html')
 def phillipines():
     return render_template("phillipines.html", time = datetime.now())
 
-@app.route('/saudiArabia.html')
-def saudiArabia():
-    return render_template("saudiArabia.html", time = datetime.now())
-
-@app.route('/somalia.html')
-def somalia():
-    return render_template("somalia.html", time = datetime.now())
-
-@app.route('/south_africa.html')
-def south_africa():
-    return render_template("south_africa.html", time = datetime.now())
+@app.route('/singapore.html')
+def singapore():
+    return render_template("singapore.html", time = datetime.now())
 
 @app.route('/switzerland.html')
 def switzerland():
@@ -115,5 +112,3 @@ def ukraine():
 @app.route('/uruguay.html')
 def uruguay():
     return render_template("uruguay.html", time = datetime.now())
-
-
