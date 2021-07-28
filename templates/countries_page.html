@@ -81,16 +81,14 @@
             <p>Government Type: {{raw["data"]["government"]["government_type"]}}</p>
             <p>Capital: {{raw["data"]["government"]["capital"]["name"]}}</p>
             
-                 <p>Independence:</p>
+                  <p>Independence:</p>
                  
                  <ul>
         
-          {% for inde in raw["data"]["government"]["independence"]%}
-            <li>{{ inde["date"] }} ({{ inde["note"]}}%)</li>
-           {% if inde %}
-            <li>N/A</li>
-            {% endif %}
-            {% endfor %} 
+          
+            <li>{{ independence["date"] }} {{  independence["note"]}}</li>
+           
+            
            
         </ul>
             <p>Legal System: {{raw["data"]["government"]["legal_system"]}}</p>
@@ -102,6 +100,7 @@
             </p>
             <p>Residency Requirement for Naturalization:
                 {{raw["data"]["government"]["citizenship"]["residency_requirement_for_naturalization"]}}</p>
+                <br><br>
             </div>
              <div style="margin-left: 55%; height: 100px;">
                 <br><br>
@@ -135,8 +134,8 @@
         </ul>
             
             <h2><u>Military and Security</u></h2>
-            <!-- <p>Years of Age: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["years_of_age"]}}</p> -->
-            <!-- <p>Note: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["note"]}}</p> -->
+            <p>Years of Age: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["years_of_age"]}}</p>
+            <p>Note: {{raw["data"]["military_and_security"]["service_age_and_obligation"]["note"]}}</p>
             <br>
             <br>
         </div>

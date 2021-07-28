@@ -20,12 +20,42 @@ def countries_page():
     try:
         selectedCountry = request.form['country'].lower()
         raw = worldList(selectedCountry)
+        try:
+            independence =  raw["data"]["government"]["independence"]
+
+        except:
+            independence = {"date":"N/A", "note": "N/A"}
+            
+        print("happy")
+        print(independence)
+        
     except:
         return "404 error. Please enter the name of a country."
     
-    return render_template("countries_page.html", time = datetime.now(), raw = raw)
+    return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
+
+@app.route('/countries/<country>')
+def custom_countries(country):
+    try:
+        selectedCountry = country
+        raw = worldList(selectedCountry)
+        try:
+            independence =  raw["data"]["government"]["independence"]
+
+        except:
+            independence = {"date":"N/A", "note": "N/A"}
+            
+        print("happy")
+        print(independence)
+        
+    except:
+        return "404 error. Please enter the name of a country."
     
-# def countries_image(a):
+    return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
+    
+
+    
+# def countries_image():
 #     selectedCountries = request.form['country']
 #     info = worldImageList(selectedCountries)
 
@@ -57,9 +87,9 @@ def australia():
 def cambodia():
     return render_template("cambodia.html", time = datetime.now())
 
-@app.route('/canada.html')
-def canada():
-    return render_template("canada.html", time = datetime.now())
+# @app.route('/canada.html')
+# def canada():
+#     return render_template("canada.html", time = datetime.now())
 
 @app.route('/chile.html')
 def chile():
