@@ -8,7 +8,6 @@ from flask import redirect
 from flask_pymongo import PyMongo
 
 
-
 #  worldImageList
 # -- Initialization section --
 app = Flask(__name__)
@@ -21,12 +20,15 @@ app.config['MONGO_URI'] = f'mongodb+srv://admin:{app.config["MONGO_PASSWORD"]}@c
 mongo = PyMongo(app)
 
 # -- Routes section --
+
+
 @app.route('/')
 @app.route('/index.html')
 def index():
     places = mongo.db.places
     places = places.find({})
-    return render_template("index.html", time = datetime.now(), places = places )
+    return render_template("index.html", time=datetime.now(), places=places)
+
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -47,32 +49,37 @@ def add():
                       'cdes': cdes, 'img_url': img_url})
 
         # return a message to the user
-        message = "Thanks for your submission!"        
+        if des == "" or cdes == "" or img_url == "":
+            return "Please fill out the form completely."
+
+        else:
+            message = "Thanks for your submission!"
+            return render_template('submission.html', message=message)
+
         # return render_template('add.html', events = events)
-        return render_template('submission.html', message = message)
 
 
-
-#datetime.now() is used to trick browser to update faster
+# datetime.now() is used to trick browser to update faster
 # add route for your gif results
-@app.route('/countries_page.html', methods = ["GET", "POST"])
+@app.route('/countries_page.html', methods=["GET", "POST"])
 def countries_page():
     try:
         selectedCountry = request.form['country'].lower()
         raw = worldList(selectedCountry)
         try:
-            independence =  raw["data"]["government"]["independence"]
+            independence = raw["data"]["government"]["independence"]
 
         except:
-            independence = {"date":"N/A", "note": "N/A"}
-            
+            independence = {"date": "N/A", "note": "N/A"}
+
         print("happy")
         print(independence)
-        
+
     except:
         return "404 error. Please enter the name of a country."
-    
-    return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
+
+    return render_template("countries_page.html", time=datetime.now(), raw=raw, independence=independence)
+
 
 @app.route('/countries/<country>')
 def custom_countries(country):
@@ -80,23 +87,25 @@ def custom_countries(country):
         selectedCountry = country
         raw = worldList(selectedCountry)
         try:
-            independence =  raw["data"]["government"]["independence"]
+            independence = raw["data"]["government"]["independence"]
 
         except:
-            independence = {"date":"N/A", "note": "N/A"}
-            
+            independence = {"date": "N/A", "note": "N/A"}
+
         print("happy")
         print(independence)
-        
+
     except:
         return "404 error. Please enter the name of a country."
-    
-    return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
+
+    return render_template("countries_page.html", time=datetime.now(), raw=raw, independence=independence)
+
 
 @app.route('/maps.html')
 def maps():
-    return render_template("maps.html", time = datetime.now())
+    return render_template("maps.html", time=datetime.now())
+
 
 @app.route('/references.html')
 def references():
-    return render_template("references.html", time = datetime.now())
+    return render_template("references.html", time=datetime.now())
