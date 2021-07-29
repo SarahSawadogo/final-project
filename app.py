@@ -4,16 +4,55 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import os
 from model import worldList
-import random
+from flask import redirect
+from flask_pymongo import PyMongo
+
+
+
 #  worldImageList
 # -- Initialization section --
 app = Flask(__name__)
-app.config["GIPHY_KEY"] = os.getenv("GIPHY_KEY")
+app.config["MONGO_PASSWORD"] = os.getenv("MONGO_PASSWORD")
+
+app.config["MONGO_DBNAME"] = 'globopedia'
+# URI of database
+app.config['MONGO_URI'] = f'mongodb+srv://admin:{app.config["MONGO_PASSWORD"]}@cluster0.ix55s.mongodb.net/globopedia?retryWrites=true&w=majority'
+
+mongo = PyMongo(app)
+
 # -- Routes section --
 @app.route('/')
 @app.route('/index.html')
 def index():
-    return render_template("index.html", time = datetime.now())
+    places = mongo.db.places
+    places = places.find({})
+    return render_template("index.html", time = datetime.now(), places = places )
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+
+    if request.method == 'GET':
+        return render_template('index.html')
+
+    else:
+        # connect to the database
+        places = mongo.db.places
+
+        # insert new data
+
+        des = request.form["des"]
+        cdes = request.form["cdes"]
+        img_url = request.form['img_url']
+        places.insert({'des': des,
+                      'cdes': cdes, 'img_url': img_url})
+
+        # return a message to the user
+        message = "Thanks for your submission!"        
+        # return render_template('add.html', events = events)
+        return render_template('submission.html', message = message)
+
+
+
 #datetime.now() is used to trick browser to update faster
 # add route for your gif results
 @app.route('/countries_page.html', methods = ["GET", "POST"])
@@ -54,16 +93,6 @@ def custom_countries(country):
     
     return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
 
-
-    
-
-    
-# def countries_image():
-#     selectedCountries = request.form['country']
-#     info = worldImageList(selectedCountries)
-
-#     return render_template("countries_page.html", time = datetime.now(), info = info)
-# def countries_page_img():
 @app.route('/maps.html')
 def maps():
     return render_template("maps.html", time = datetime.now())
