@@ -147,20 +147,7 @@ ul {
     color:#020d38;
 }
 
-.h{
-    height: 500px;
-}
 
-.c {
-    display:grid;
-}
 
-.c__item:first-of-type{
-    grid-column: 2 / span 30;
-    grid-row: 1 / span 30;
-}
 
-.c__item:last-of-type{
-    grid-column: 2 / span 30;
-    grid-row: 1 / span 30;
-}
+
