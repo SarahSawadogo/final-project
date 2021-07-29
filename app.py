@@ -3,7 +3,8 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 import os
-from model import worldList, city
+from model import worldList
+import random
 #  worldImageList
 # -- Initialization section --
 app = Flask(__name__)
@@ -52,6 +53,8 @@ def custom_countries(country):
         return "404 error. Please enter the name of a country."
     
     return render_template("countries_page.html", time = datetime.now(), raw = raw, independence = independence)
+
+
     
 
     
