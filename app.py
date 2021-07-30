@@ -54,7 +54,7 @@ def add():
 
         else:
             message = "Thanks for your submission!"
-            return render_template('submission.html', message=message)
+            return render_template('submission.html', message=message, des=des, img_url=img_url)
 
         # return render_template('add.html', events = events)
 

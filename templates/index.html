@@ -278,6 +278,24 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        {% for place in places %}
+                <div class="col-4">
+                    <div class="thumbnail text-center">
+                <!-- odessa opera, ukraine -->
+                
+                <a href= #>
+                    <img src={{place.img_url}}
+                        width="100%;">
+                    <div class="caption">
+                        <p>{{place.des}}</p>
+                    </div>
+                </a>
+                    
+                </div>
+            </div>
+            {% endfor %}
+            
     <br>
     <br>
     <footer>
@@ -322,6 +340,7 @@
                     <p><button class="btn btn-secondary">Subscribe</button></p>
                 </div>
             </div>
+        
             
         </div>
     </footer>
