@@ -142,9 +142,15 @@ ul {
     text-align:center;
 }
 
+.e{
+     text-align:center;
+    color: #020d38;
+}
+
 .g{
+background-color: #020d38;    
     text-align:center;
-    color:#020d38;
+    color:white;
 }
 
 .message{
